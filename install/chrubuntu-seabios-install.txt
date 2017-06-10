@@ -171,7 +171,7 @@ hwid="`crossystem hwid`"
 if [ "$ubuntu_version" = "lts" ]
 then
   ubuntu_version=`wget --quiet -O - http://changelogs.ubuntu.com/meta-release | grep "^Version:" | grep "LTS" | tail -1 | sed -r 's/^Version: ([^ ]+)( LTS)?$/\1/'`
-  tar_file="http://cdimage.ubuntu.com/ubuntu-core/16/stable/ubuntu-core-16-amd64.img.xz"
+  tar_file="http://cdimage.ubuntu.com/ubuntu-core/vivid/daily-preinstalled/current/vivid-preinstalled-core-amd64.tar.gz"
 elif [ "$ubuntu_version" = "latest" ]
 then
   ubuntu_version=`wget --quiet -O - http://changelogs.ubuntu.com/meta-release | grep "^Version: " | tail -1 | sed -r 's/^Version: ([^ ]+)( LTS)?$/\1/'`
