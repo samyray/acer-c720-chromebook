@@ -267,11 +267,12 @@ apt-get -y install $ubuntu_metapackage
 $cr_install
 apt-get -y install linux
 apt-get -y install grub-pc
+rm -rf /etc/grub.d/09_snappy
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install ${target_disk} --force
 mykern=\`ls /boot/vmlinuz-* | grep -oP \"[0-9].*\" | sort -rV | head -1\`
-wget http://goo.gl/kz917j
-bash kz917j \$mykern
+wget https://raw.githubusercontent.com/samyray/acer-c720-chromebook/6d9c75caa8d71966d805957f08491e3edebc47eb/install/cros-haswell-modules.sh
+bash cros-haswell-modules.sh \$mykern
 rm kz917j
 useradd -m user -s /bin/bash
 echo user | echo user:user | chpasswd
